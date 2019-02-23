@@ -76,7 +76,8 @@
 #'                              nn = 300,
 #'                              k = 4,
 #'                              phi = NULL,
-#'                              type = 2)
+#'                              type = 2,
+#'                              tttt = tttt)
 #' aaa1 <- proc.time()
 #' aaa1 - aaa
 #'
@@ -111,7 +112,7 @@ MAP_test = function(est_result,
   eta3_pre = t(qnorm(qmc.grid[,(n_basis + 2) : (2 * n_basis + 1)]))
   wt = rep(1/nn,nn)
   eta2 = x %*% ((eta2_pre ) * sqrt(result1$sigma2))
-  T_stat_fun = function(sigma2, sigma1_2 , sigma2_2, mu1 , p_k, aa_use){
+  T_stat_fun = function(sigma2, sigma1_2 , sigma2_2, mu1 , p_k, phi){
     # phi = rep(1/aa_use, each = n_control + n_treat)
     # phi = 1/aa_use
     # phi <- 1/1
@@ -171,7 +172,7 @@ MAP_test = function(est_result,
                    sigma2_2 = result1$sigma2_2,
                    mu1 =  result1$mu1,
                    p_k = result1$p_k,
-                   aa_use = aa_use)
+                   phi = phi)
 
 
   T_x = (T_x - apply(T_x, 1, max))

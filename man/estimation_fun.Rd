@@ -5,7 +5,7 @@
 \title{Estimation for MAP data set:}
 \usage{
 estimation_fun(n_control = 10, n_treat = 10, n_rep = 3, x, Y1,
-  k = 4, nn = 300, phi = NULL, type = NULL)
+  k = 4, nn = 300, phi = NULL, type = NULL, tttt)
 }
 \arguments{
 \item{n_control}{Number of time points in control group}
@@ -25,6 +25,8 @@ estimation_fun(n_control = 10, n_treat = 10, n_rep = 3, x, Y1,
 \item{phi}{the dispersion parameter}
 
 \item{type}{dispersion parameter estimation type}
+
+\item{tttt}{Time points used in the design}
 }
 \value{
 A list of parameters that we need to use for DE analysis.\cr
@@ -106,7 +108,8 @@ est_result <- estimation_fun(n_control = n_control,
                              nn = 300,
                              k = 4,
                              phi = NULL,
-                             type = 2)
+                             type = 2,
+                             tttt = tttt)
 aaa1 <- proc.time()
 aaa1 - aaa
 #------------gaussian basis construction------------------
@@ -119,7 +122,8 @@ aaa1 - aaa
 # B = b/A
 # phi_cal = function(k, x){
 #   Lambda_k =sqrt(2 * a / A) * B^k
-#   1/(sqrt(sqrt(a/c) * 2^k * gamma(k+1))) * exp(-(c-a) * x^2) * hermite(sqrt(2 * c) * x, k, prob = F)
+#   1/(sqrt(sqrt(a/c) * 2^k * gamma(k+1))) *
+#      exp(-(c-a) * x^2) * hermite(sqrt(2 * c) * x, k, prob = F)
 #
 # }
 # z = do.call(cbind, lapply(c(1:n_basis), phi_cal, x = (tttt - mean(tttt))))

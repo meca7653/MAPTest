@@ -8,7 +8,7 @@
 #' @param nn Number of QMC nodes used in likelihood estimation
 #' @param phi the dispersion parameter
 #' @param type dispersion parameter estimation type
-#'
+#' @param tttt Time points used in the design
 #'
 #' @details The vector of read counts for gene g, treatment group i, replicate j,
 #' at time point \eqn{t,Y_{gij}(t)}, follows a Negative Binomial distribution
@@ -77,7 +77,8 @@
 #'                              nn = 300,
 #'                              k = 4,
 #'                              phi = NULL,
-#'                              type = 2)
+#'                              type = 2,
+#'                              tttt = tttt)
 #' aaa1 <- proc.time()
 #' aaa1 - aaa
 #' #------------gaussian basis construction------------------
@@ -90,7 +91,8 @@
 #' # B = b/A
 #' # phi_cal = function(k, x){
 #' #   Lambda_k =sqrt(2 * a / A) * B^k
-#' #   1/(sqrt(sqrt(a/c) * 2^k * gamma(k+1))) * exp(-(c-a) * x^2) * hermite(sqrt(2 * c) * x, k, prob = F)
+#' #   1/(sqrt(sqrt(a/c) * 2^k * gamma(k+1))) *
+#' #      exp(-(c-a) * x^2) * hermite(sqrt(2 * c) * x, k, prob = F)
 #' #
 #' # }
 #' # z = do.call(cbind, lapply(c(1:n_basis), phi_cal, x = (tttt - mean(tttt))))
@@ -123,16 +125,15 @@ estimation_fun = function(n_control = 10,
                           k = 4,
                           nn = 300,
                           phi = NULL,
-                          type = NULL
-
+                          type = NULL,
+                          tttt
 ){
-
-
-
+  aa_use = NULL
+  gg = NULL
   n_basis <- dim(x)[2]
-  x_full = paste0(rep("X", 2 * n_basis + 1), c(1:(n_basis * 2 + 1)))
-  x_reduce_all = paste0(rep("X", n_basis), c(1:n_basis)+1)
-  x_reduce = paste0(rep("X", n_basis + 1), c(2:(n_basis*2 + 1)))
+  x_full <- paste0(rep("X", 2 * n_basis + 1), c(1:(n_basis * 2 + 1)))
+  x_reduce_all <- paste0(rep("X", n_basis), c(1:n_basis)+1)
+  x_reduce <- paste0(rep("X", n_basis + 1), c(2:(n_basis*2 + 1)))
   x_reduce_eta_3 <- paste0(rep("X", n_basis + 1), c(1:(n_basis + 1)))
   FFormula <- as.formula(paste("Y1 ~", paste(x_full, collapse = "+"), "- 1"))
   FFormula_null <- as.formula(paste("Y1 ~", paste(x_reduce_all, collapse = "+"), "- 1"))
@@ -140,7 +141,6 @@ estimation_fun = function(n_control = 10,
   FFormula_null_eta_3 <- as.formula(paste("Y1 ~", paste(x_reduce_eta_3, collapse = "+"), "- 1"))
   G <- dim(Y1)[1]
   X1 <- c(rep(0, n_rep * n_control), rep(1, n_rep * n_treat))
-
   #-----------GLM and M_cluster initialization----------------
   result <- foreach(gg = c(1:G), .combine = "rbind") %do% {
     print(gg)
@@ -236,7 +236,6 @@ estimation_fun = function(n_control = 10,
   result <- result_pre[index_use, ]
   vv_coef <- do.call(rbind, result[,3])
   aa <- do.call(rbind, result[,6])
-
   if(is.null(phi)){
     if(type == 1){
       aa_use <- aa

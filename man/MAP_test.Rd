@@ -92,7 +92,8 @@ est_result <- estimation_fun(n_control = n_control,
                              nn = 300,
                              k = 4,
                              phi = NULL,
-                             type = 2)
+                             type = 2,
+                             tttt = tttt)
 aaa1 <- proc.time()
 aaa1 - aaa
 
