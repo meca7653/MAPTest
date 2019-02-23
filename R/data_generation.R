@@ -23,7 +23,8 @@
 #' * g = 1,...,G; and
 #' * \eqn{[\eta_{g1}, \eta_{g2}, \tau_{g}]} ~ 4-component gausssian mixture model
 #' @return * Y1 Simulated data
-#' @examples rm(list = ls())
+#' @examples
+#' library(matlib)
 #' n_basis = 2
 #' n_control = 10
 #' n_treat   = 10
@@ -59,6 +60,7 @@
 #' @import EQL
 #' @import matlib
 #' @import parallel
+#' @export
 #' @md
 ####################
 data_generation = function(

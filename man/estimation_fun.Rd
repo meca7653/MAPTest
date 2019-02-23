@@ -70,8 +70,7 @@ We used latented negative binomial model with EM algorithm to estimate the param
 }
 }
 \examples{
-rm(list = ls())
-n_basis = 2
+library(matlib)
 n_basis = 2
 n_control = 10
 n_treat   = 10
@@ -113,7 +112,6 @@ aaa1 - aaa
 #------------gaussian basis construction------------------
 # method <- "gaussian"
 # n_basis <- 2
-#
 # a = 1/4
 # b = 2
 # c = sqrt(a^2 + 2 * a * b)

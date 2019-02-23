@@ -58,7 +58,7 @@ We have B'(t) are design matrix, which is constructed by 2 orthorgonal polynomia
 }
 }
 \examples{
-rm(list = ls())
+library(matlib)
 n_basis = 2
 n_control = 10
 n_treat   = 10

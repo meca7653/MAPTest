@@ -40,9 +40,8 @@
 #' * sigma2_2 Variance parameter for \eqn{\eta_{g2}}
 #' * p_k Proportion for each mixture component
 #' * aa Dispertion parameter
-#'
-#' @examples rm(list = ls())
-#' n_basis = 2
+#' @examples
+#' library(matlib)
 #' n_basis = 2
 #' n_control = 10
 #' n_treat   = 10
@@ -84,7 +83,6 @@
 #' #------------gaussian basis construction------------------
 #' # method <- "gaussian"
 #' # n_basis <- 2
-#' #
 #' # a = 1/4
 #' # b = 2
 #' # c = sqrt(a^2 + 2 * a * b)
@@ -116,6 +114,7 @@
 #' @import matlib
 #' @import parallel
 #' @md
+#' @export
 estimation_fun = function(n_control = 10,
                           n_treat   = 10,
                           n_rep     = 3,
