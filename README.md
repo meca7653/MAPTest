@@ -1,7 +1,7 @@
 # MAPTest
 # {.tabset}
 ## Prerequisites
-You also need an R (>= 3.0.2) installation on your computer; run:
+You also need an R (>= 3.4.0) installation on your computer; run:
 $ R
 
 install.packages(c("foreach","MASS","mvtnorm","randtoolbox","stats","mclust","EQL","matlib","parallel"), dependencies=TRUE)
