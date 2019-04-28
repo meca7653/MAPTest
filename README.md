@@ -1,10 +1,10 @@
 # MAPTest
 ## Prerequisites
 You also need an R (>= 3.4.0) installation on your computer; run:
-$ R
 
+```
 install.packages(c("foreach","MASS","mvtnorm","randtoolbox","stats","mclust","EQL","matlib","parallel"), dependencies=TRUE)
-
+```
 which should download, build and install all R tools needed.
 
 ## Build, install and test
