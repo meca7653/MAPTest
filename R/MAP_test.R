@@ -257,7 +257,7 @@ MAP_test = function(est_result,
 
 
       for(jj in c(1:length(FDR_ct))){
-        ct_final = max(ct[which(FDR[,ii] == max(FDR[which (FDR[,ii]<FDR_ct[jj]), kk]))] )
+        ct_final = max(ct[which(FDR[,ii] == max(FDR[which (FDR[,ii]<FDR_ct[jj]), ii]))] )
         ct_final_all[jj, ii] = ct_final
         phi_x = (res<ct_final)
         FDR_final[jj, ii] = sum(res*phi_x)/sum(phi_x)
