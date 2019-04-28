@@ -9,10 +9,9 @@ install.packages(c("foreach","MASS","mvtnorm","randtoolbox","stats","mclust","EQ
 which should download, build and install all R tools needed.
 
 ## Build, install and test
+
 Run R shell and load devtools library:
-
-$ R
-
+```
 library(devtools)
 
 install_github("meca7653/MAPTest")
@@ -64,9 +63,11 @@ Y1 = data_generation(G = 100,
                      phi_g_r = rep(1, 100),
                      p_k_real = c(0.7, 0.1, 0.1, 0.1),
                      x = x)
+```
 
 ### Estimate
 
+```
 aaa <- proc.time()
 est_result <- estimation_fun(n_control = n_control,
                              n_treat = n_treat,
@@ -82,8 +83,10 @@ est_result <- estimation_fun(n_control = n_control,
 aaa1 <- proc.time()
 
 aaa1 - aaa
-
+```
 ### MAPTest
+
+```
 G <- 100
 
 k_real <- 4
@@ -95,4 +98,4 @@ dd = rep(c(0:(k_real-1)), p_k_real * G)
 result = MAP_test(est_result = est_result, Type = c(1:6), dd = dd, nn = 300)
 
 Summary_MAP(result)
-
+```
