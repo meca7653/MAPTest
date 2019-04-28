@@ -1,5 +1,4 @@
 # MAPTest
-# {.tabset}
 ## Prerequisites
 You also need an R (>= 3.4.0) installation on your computer; run:
 $ R
