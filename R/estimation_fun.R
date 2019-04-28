@@ -16,12 +16,12 @@
 #' \eqn{E[Y_{gij}(t)] = lambda_{gi}(t)}.
 #' \eqn{\lambda_{gi}(t)} is further modeled as
 #' \eqn{\lambda_{gi}(t) = S_{ij} exp[\eta_{g1}I_{i = 2} + B'(t)\eta_{g2}I_{i = 2} + B'(t)\tau_{g}]}
-#' We have B'(t) are design matrix, which is constructed by 2 orthogonal polynomial bases.
+#' We have B'(t) are design matrix, which is constructed by 2 orthorgonal polynomial bases.
 #' * t = 1,..., n_treat (or n_control if control group);
 #' * j = 1,..., n_rep;
 #' * g = 1,...,G; and
-#' * \eqn{[\eta_{g1}, \eta_{g2}, \tau_{g}]} ~ 4-component Gaussian mixture model.
-#' We used latent negative binomial model with EM algorithm to estimate the parameters of mixture model.
+#' * \eqn{[\eta_{g1}, \eta_{g2}, \tau_{g}]} ~ 4-component gausssian mixture model.
+#' We used latented negative binomial model with EM algorithm to estimate the paramters of mixture model.
 #' @return A list of parameters that we need to use for DE analysis.\cr
 #'
 #' data_use List includes the data information
@@ -39,7 +39,7 @@
 #' * sigma2 Variance parameter for \eqn{\tau_{g}}
 #' * sigma2_2 Variance parameter for \eqn{\eta_{g2}}
 #' * p_k Proportion for each mixture component
-#' * aa Dispersion parameter
+#' * aa Dispertion parameter
 #' @examples
 #' library(matlib)
 #' n_basis = 2
@@ -113,8 +113,8 @@
 #' @import stats
 #' @import mclust
 #' @import EQL
-#' @import matlib
 #' @import parallel
+#' @import matlib
 #' @md
 #' @export
 estimation_fun = function(n_control = 10,

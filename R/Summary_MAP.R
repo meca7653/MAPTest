@@ -76,8 +76,8 @@
 #' @import stats
 #' @import mclust
 #' @import EQL
-#' @import matlib
 #' @import parallel
+#' @import matlib
 #' @md
 #' @export
 Summary_MAP = function(test_result,

@@ -37,8 +37,8 @@
 #' @import stats
 #' @import mclust
 #' @import EQL
-#' @import matlib
 #' @import parallel
+#' @import matlib
 #' @examples
 #' library(matlib)
 #' n_basis = 2

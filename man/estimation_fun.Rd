@@ -49,7 +49,7 @@ result1 List includes the Parameters estimations
 \item sigma2 Variance parameter for \eqn{\tau_{g}}
 \item sigma2_2 Variance parameter for \eqn{\eta_{g2}}
 \item p_k Proportion for each mixture component
-\item aa Dispersion parameter
+\item aa Dispertion parameter
 }
 }
 \description{
@@ -62,13 +62,13 @@ parameterized mean \eqn{\lambda_{gi}} and \eqn{\phi_g}, where
 \eqn{E[Y_{gij}(t)] = lambda_{gi}(t)}.
 \eqn{\lambda_{gi}(t)} is further modeled as
 \eqn{\lambda_{gi}(t) = S_{ij} exp[\eta_{g1}I_{i = 2} + B'(t)\eta_{g2}I_{i = 2} + B'(t)\tau_{g}]}
-We have B'(t) are design matrix, which is constructed by 2 orthogonal polynomial bases.
+We have B'(t) are design matrix, which is constructed by 2 orthorgonal polynomial bases.
 \itemize{
 \item t = 1,..., n_treat (or n_control if control group);
 \item j = 1,..., n_rep;
 \item g = 1,...,G; and
-\item \eqn{[\eta_{g1}, \eta_{g2}, \tau_{g}]} ~ 4-component Gaussian mixture model.
-We used latent negative binomial model with EM algorithm to estimate the parameters of mixture model.
+\item \eqn{[\eta_{g1}, \eta_{g2}, \tau_{g}]} ~ 4-component gausssian mixture model.
+We used latented negative binomial model with EM algorithm to estimate the paramters of mixture model.
 }
 }
 \examples{

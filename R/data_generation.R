@@ -58,8 +58,8 @@
 #' @import stats
 #' @import mclust
 #' @import EQL
-#' @import matlib
 #' @import parallel
+#' @import matlib
 #' @export
 #' @md
 ####################
