@@ -143,7 +143,7 @@ estimation_fun = function(n_control = 10,
   X1 <- c(rep(0, n_rep * n_control), rep(1, n_rep * n_treat))
   #-----------GLM and M_cluster initialization----------------
   result <- foreach(gg = c(1:G), .combine = "rbind") %do% {
-    print(gg)
+    # print(gg)
 
 
     data = data.frame(cbind(Y1[gg, ], X1, x, X1 * x))
@@ -228,7 +228,6 @@ estimation_fun = function(n_control = 10,
     list(coef, ee_index, vv_coef, pp_v, pp_v_eta_3, aa, aa_glm)
 
   }
-
   ee_index <- do.call(rbind, result[,2])
   coef <- do.call(rbind, result[,1])
   index_use <- which(ee_index == 0 & abs(coef[,1]) < 20)
@@ -290,7 +289,7 @@ estimation_fun = function(n_control = 10,
     p_k[which(is.na(p_k))] = (1 - sum(p_k, na.rm = T))/sum(is.na(p_k))
   }
 
-  print(p_k)
+  # print(p_k)
   ######################################
 
   res_get = list(aa = aa, mu1 = mu1, sigma1_2 = sigma1_2,
@@ -370,7 +369,7 @@ estimation_fun = function(n_control = 10,
     mu1 = par[2]
     sigma2 = par[3:(n_basis+2)]
     sigma2_2 = par[(n_basis + 3):(2 * n_basis + 2)]
-    print(par)
+    # print(par)
     tmp = likelihood_SP(sigma2, sigma1_2, mu1, p_k, sigma2_2, index, wt,
                         Y1 = Y1,
                         eta1_pre = eta1_pre,
@@ -401,9 +400,11 @@ estimation_fun = function(n_control = 10,
   j = 0
   ll0 = 0
   ll1 = 100
+
   while (abs(ll0-ll1)/abs(ll0) >= 1e-2){
     j = j+1
-    print(paste0("j_", j))
+    # print(paste0("j_", j))
+    # print(".")
     ll0 = ll1
     p_k_pre = p_k
     lll1 = likelihood_SP(sigma2, sigma1_2, mu1, p_k, sigma2_2, index, wt, Y1 = Y1,

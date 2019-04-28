@@ -154,7 +154,7 @@ MAP_test = function(est_result,
       }
       res = apply(exp(res_pre), 1, mean)
       mm_c_full[[kk]] = res_pre
-      print(kk)
+      # print(kk)
 
     }
 
@@ -183,7 +183,8 @@ MAP_test = function(est_result,
     test_stat = matrix(0, G, length(Type))
     for(ii in c(1:length(Type))){
       kk = Type[ii]
-      print(kk)
+      # progress(ii/length(Type) * 100)
+      # print(paste0(ii/length(Type) * 100, "%") )
 
       if(kk == 1){
         index_use = 1 #general DE detection
@@ -198,7 +199,7 @@ MAP_test = function(est_result,
       }else if(kk == 6){
         index_use = c(1,2,3)
       }
-      print(index_use)
+      # print(index_use)
       res = apply(t(t(exp(T_x)[,index_use])), 1, sum)/apply(exp(T_x), 1, sum)
       test_stat[,ii] = res
       ct =  seq(min(res),quantile(res)[4], length.out = 100)
@@ -228,9 +229,9 @@ MAP_test = function(est_result,
     FDR_final = FDR_real = power = ct_final_all = matrix(0, length(FDR_ct), length(Type))
     test_stat = matrix(0, G, length(Type))
     for(ii in c(1:length(Type))){
+      # print(paste0(ii/length(Type) * 100, "%") )
       kk = Type[ii]
-      print(kk)
-
+      # progress(ii/length(Type) * 100)
       if(kk == 1){
         index_use = 1 #general DE detection
       }else if(kk == 2){
@@ -244,7 +245,7 @@ MAP_test = function(est_result,
       }else if(kk == 6){
         index_use = c(1,2,3)
       }
-      print(index_use)
+      # print(index_use)
       res = apply(t(t(exp(T_x)[,index_use])), 1, sum)/apply(exp(T_x), 1, sum)
       test_stat[,ii] = res
       ct =  seq(min(res),quantile(res)[4], length.out = 100)

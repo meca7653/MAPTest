@@ -92,7 +92,6 @@ Summary_MAP = function(test_result,
                       Reject_index = rej,
                       FDR_hat = FDR_hat)
 
-
   }
   return(result)
 }

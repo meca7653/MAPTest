@@ -16,10 +16,12 @@ library(devtools)
 install_github("meca7653/MAPTest")
 
 library(MAPTest)
+```
 
 ## Examples:
 
 ### Simulate Data
+```
 library(matlib)
 
 n_basis = 2
