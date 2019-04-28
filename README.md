@@ -12,6 +12,7 @@ which should download, build and install all R tools needed.
 Run R shell and load devtools library:
 
 $ R
+
 library(devtools)
 
 install_github("meca7653/MAPTest")
