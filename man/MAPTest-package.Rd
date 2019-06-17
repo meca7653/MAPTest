@@ -9,10 +9,11 @@
 MAP test for analyzing temporal gene expression data.
 }
 \details{
-MAP test for analyzing temporal gene expression data.
+This package contains functions for statistical calculations and multiple testing procedures.
 }
 \author{
-\strong{Maintainer}: Meng Cao \email{meng.cao@colostate.edu}
-
+Meng Cao <meng.cao@colostate.edu>, \cr
+F.Jay Breidt <FJay.Breidt@colostate.edu >, \cr
+Wen Zhou <riczw@stat.colostate.edu >
 }
 \keyword{internal}
