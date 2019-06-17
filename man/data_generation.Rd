@@ -45,11 +45,11 @@ Simulate MAP data set:
 \details{
 The vector of read counts for gene g, treatment group i, replicate j,
 at time point \eqn{t,Y_{gij}(t)}, follows a Negative Binomial distribution
-parameterized mean lambda_{gi} and phi_g, where
-\eqn{E[Y_{gij}(t)] = lambda_{gi}(t)}.
+parameterized mean \eqn{\lambda_{gi}} and \eqn{\phi_g}, where
+\eqn{E[Y_{gij}(t)] = \lambda_{gi}(t)}.
 \eqn{\lambda_{gi}(t)} is further modeled as
-\eqn{\lambda_{gi}(t) = S_{ij} \exp[\eta_{g1}I_{i = 2} + B'(t)\eta_{g2}I_{i = 2} + B'(t)\tau_{g}]}
-We have B'(t) are design matrix, which is constructed by 2 orthorgonal polynomial bases.
+\eqn{\lambda_{gi}(t) = S_{ij} \exp[\eta_{g1}I_{i = 2} + B'(t)\eta_{g2}I_{i = 2} + B'(t)\tau_{g}]}.
+We have \eqn{B'(t)} are design matrix, which is constructed by 2 orthorgonal polynomial bases.
 \itemize{
 \item t = 1,..., n_treat (or n_control if control group);
 \item j = 1,..., n_rep;
