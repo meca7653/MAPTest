@@ -25,7 +25,7 @@
 #' @return A list of parameters that we need to use for DE analysis.\cr
 #'
 #' data_use List includes the data information
-#' * Y1 RNA-seq data set: G by (n_control + n_treat) * n_rep matrix
+#' * Y1 RNA-seq data set: G by (n_control + n_treat) x n_rep matrix
 #' * start Starting point of the EM algorithm
 #' * k always 4
 #' * n_basis Number of basis function have been used to construct the design matrix

@@ -33,7 +33,7 @@ A list of parameters that we need to use for DE analysis.\cr
 
 data_use List includes the data information
 \itemize{
-\item Y1 RNA-seq data set: G by (n_control + n_treat) * n_rep matrix
+\item Y1 RNA-seq data set: G by (n_control + n_treat) x n_rep matrix
 \item start Starting point of the EM algorithm
 \item k always 4
 \item n_basis Number of basis function have been used to construct the design matrix

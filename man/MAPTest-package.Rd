@@ -10,10 +10,17 @@ MAP test for analyzing temporal gene expression data.
 }
 \details{
 This package contains functions for statistical calculations and multiple testing procedures.
+Get details of the included functions:\cr
+\itemize{
+\item ?data_generation
+\item ?estimation_fun
+\item ?MAP_test
+\item ?Summary_MAP
+}
 }
 \author{
-Meng Cao <meng.cao@colostate.edu>, \cr
-F.Jay Breidt <FJay.Breidt@colostate.edu>, \cr
-Wen Zhou <riczw@stat.colostate.edu>
+Meng Cao \href{mailto:meng.cao@colostate.edu}{meng.cao@colostate.edu}, \cr
+F.Jay Breidt \href{mailto:FJay.Breidt@colostate.edu}{FJay.Breidt@colostate.edu}, \cr
+Wen Zhou \href{mailto:riczw@stat.colostate.edu}{riczw@stat.colostate.edu}
 }
 \keyword{internal}
