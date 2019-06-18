@@ -11,7 +11,7 @@ which should download, build and install all R tools needed.
 
 Run R shell and load devtools library:
 ```
-library(devtools)
+require(devtools)
 
 install_github("meca7653/MAPTest")
 
@@ -21,6 +21,9 @@ library(MAPTest)
 ## Examples:
 
 ### Simulate Data
+
+The Example_Data available on Biometrics website on Wiley Online Library can be generated from the following code.
+
 ```
 library(matlib)
 
@@ -52,7 +55,10 @@ x[,1] = z[,1] - Proj(z[,1], rep(1, length(tttt)))
 
 x[,2] = z[,2] - Proj(z[,2], rep(1, length(tttt))) - Proj(z[,2], x[,1])
 
-Y1 = data_generation(G = 100,
+p_k_real = c(0.5, 0.2, 0.2, 0.1)
+
+set.seed(2019)
+Y1 = data_generation(G = 1000,
                      n_control = n_control,
                      n_treat   = n_treat,
                      n_rep     = n_rep,
@@ -61,9 +67,14 @@ Y1 = data_generation(G = 100,
                      sigma1_2_r = 1,
                      sigma2_2_r = c(3,2),
                      mu1_r = 4,
-                     phi_g_r = rep(1, 100),
-                     p_k_real = c(0.7, 0.1, 0.1, 0.1),
+                     phi_g_r = rep(1, 1000),
+                     p_k_real = p_k_real,
                      x = x)
+colnames(Y1) <- c(paste(paste("C", rep(c(1:n_control), n_rep), sep = "_"), rep(c(1:n_rep), each = n_control), sep = "_"),
+                  paste(paste("T", rep(c(1:n_treat), n_rep), sep = "_"), rep(c(1:n_rep), each = n_treat), sep = "_"))
+rownames(Y1) <- paste("Gene", c(1:1000))
+save(Y1, file = "Example_Data.rda")
+write.csv(Y1, file = "Example_Data.csv")
 ```
 
 ### Estimate
@@ -88,11 +99,11 @@ aaa1 - aaa
 ### MAPTest
 
 ```
-G <- 100
+G <- 1000
 
 k_real <- 4
 
-p_k_real <- c(0.7, 0.1, 0.1, 0.1)
+p_k_real <- c(0.5, 0.2, 0.2, 0.1)
 
 dd = rep(c(0:(k_real-1)), p_k_real * G)
 
